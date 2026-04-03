@@ -1,5 +1,9 @@
 # Web Development for Beginners
 
+## Demo
+
+academy.github.io
+
 ## Lesson 1.0: Git & Introduction HTML
 
 ### Table of Contents
@@ -88,9 +92,52 @@ To create and work with repositories, follow these steps:
 4. **Remote Repository**: If working with a remote repository, set it up using `git remote add origin [URL]`.
 5. **Push Changes**: Push your changes to the remote repository with `git push origin master`.
 
----
+This documentation will improve your learning process.
 
-We hope this documentation will assist you in your learning process. Happy coding!
+## Running Docs
+
+We use Jekyll to generate static documentation.
+
+### Prerequisites
+
+1. **Install Ruby** (Ruby 2.7 or higher)
+   - **Using RVM (recommended for version management):**
+     ```bash
+     curl -sSL https://get.rvm.io | bash -s stable
+     source ~/.rvm/scripts/rvm
+     rvm install 3.2
+     rvm use 3.2 --default
+     ```
+   - **Or install directly via package manager:**
+     ```bash
+     # Ubuntu/Debian
+     sudo apt-get update
+     sudo apt-get install ruby-full build-essential
+     ```
+
+2. **Install Bundler:**
+   ```bash
+   gem install bundler
+   ```
+
+### Running the Server
+
+1. Navigate to the docs directory:
+   ```bash
+   cd docs
+   ```
+
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
+
+3. Start the Jekyll server:
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. Open your browser and navigate to `http://localhost:4000`
 
 ## License
 
