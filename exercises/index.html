@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises - imageleft - Academy</title>
+    <link rel="stylesheet" href="/assets/main.css" />
+    
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <a class="site-title" href="/">imageleft - Academy</a>
+        <nav class="site-nav">
+          <a href="/">Home</a>
+          <a href="/tracks/">Tracks</a>
+          <a href="/exercises/">Exercises</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+        <div class="exercises-container">
+  <h1>Interactive HTML Exercises</h1>
+  <p class="intro-text">Practice what you've learned with these interactive exercises. Each exercise includes:</p>
+  
+  <ul class="features">
+    <li>👁️ <strong>Preview</strong>: See the HTML rendered live</li>
+    <li>&lt;/&gt; <strong>Code</strong>: View and copy the source code</li>
+    <li>📝 &lt;strong:&gt;Instructions&lt;/strong: Learn what each exercise teaches</li>
+  </ul>
+
+  <h2>HTML Exercises</h2>
+
+  <div class="exercises-grid">
+    <a href="./headings/" class="exercise-card">
+      <h3>📝 Headings</h3>
+      <p>Use HTML heading tags (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) and practice styling them with colors and alignment.</p>
+      <div class="topics">
+        <span>Heading hierarchy</span>
+        <span>CSS colors</span>
+        <span>Text alignment</span>
+      </div>
+      <div class="cta">Start Exercise →</div>
+    </a>
+
+    <a href="./links/" class="exercise-card">
+      <h3>🔗 Links</h3>
+      <p>Master the <code>&lt;a&gt;</code> tag to create hyperlinks, internal navigation, and understand link attributes.</p>
+      <div class="topics">
+        <span>Anchor tags</span>
+        <span>Navigation</span>
+        <span>Link attributes</span>
+      </div>
+      <div class="cta">Start Exercise →</div>
+    </a>
+
+    <a href="./tables/" class="exercise-card">
+      <h3>📊 Tables</h3>
+      <p>Build structured data with table tags, understand rows and columns, and style tables with CSS.</p>
+      <div class="topics">
+        <span>Table structure</span>
+        <span>Rows &amp; columns</span>
+        <span>Table styling</span>
+      </div>
+      <div class="cta">Start Exercise →</div>
+    </a>
+
+    <a href="./forms/stage1/" class="exercise-card">
+      <h3>📋 Forms</h3>
+      <p>Build interactive forms with input fields, labels, buttons, and validation for user input.</p>
+      <div class="topics">
+        <span>Form elements</span>
+        <span>Input types</span>
+        <span>Form submission</span>
+      </div>
+      <div class="cta">Start Exercise →</div>
+    </a>
+
+  </div>
+</div>
+
+<style>
+  .exercises-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .exercises-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .features {
+    background: #f9fafb;
+    border-left: 4px solid #6366f1;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+    list-style: none;
+  }
+
+  .features li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .features li:last-child {
+    margin-bottom: 0;
+  }
+
+  .exercises-container h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+  }
+
+  .exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #1f2937;
+    transition: all 0.3s ease;
+  }
+
+  .exercise-card:hover {
+    border-color: #6366f1;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .exercise-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .exercise-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  .exercise-card code {
+    background: #f3f4f6;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    color: #dc2626;
+  }
+
+  .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .topics span {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #666;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .cta {
+    color: #6366f1;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .exercises-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<p><strong>Topics covered:</strong></p>
+
+<ul>
+  <li>Creating hyperlinks with <code class="language-plaintext highlighter-rouge">href</code></li>
+  <li>Target attributes (<code class="language-plaintext highlighter-rouge">_blank</code>, <code class="language-plaintext highlighter-rouge">_self</code>)</li>
+  <li>Linking to different pages and sections</li>
+  <li>Embedding videos with iframes</li>
+</ul>
+
+<h3 id="tables-exercise"><a href="./tables/">Tables Exercise</a></h3>
+
+<p>Build structured data tables using <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;tr&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;td&gt;</code>, and related elements.</p>
+
+<p><strong>Topics covered:</strong></p>
+
+<ul>
+  <li>Table structure (<code class="language-plaintext highlighter-rouge">&lt;thead&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;tbody&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;tfoot&gt;</code>)</li>
+  <li>Table cells and rows</li>
+  <li>Table styling and borders</li>
+  <li>Responsive tables</li>
+</ul>
+
+<h2 id="form-exercises---the-treasure-hunt">Form Exercises - The Treasure Hunt</h2>
+
+<p>A series of progressively harder form exercises in an interactive “Treasure Hunt” game!</p>
+
+<h3 id="form-stage-1-basic-structure"><a href="./forms/stage1/">Form Stage 1: Basic Structure</a></h3>
+
+<p>Learn the fundamentals of HTML forms.</p>
+
+<ul>
+  <li>Basic form element</li>
+  <li>Text input fields</li>
+  <li>Submit buttons</li>
+  <li><strong>Challenge</strong>: Answer the clue and find the tag name!</li>
+</ul>
+
+<h3 id="form-stage-2-input-types"><a href="./forms/stage2/">Form Stage 2: Input Types</a></h3>
+
+<p>Explore different input types and form controls.</p>
+
+<ul>
+  <li>Email and password inputs</li>
+  <li>Checkboxes and radio buttons</li>
+  <li>Select dropdowns</li>
+  <li><strong>Challenge</strong>: Continue the treasure hunt!</li>
+</ul>
+
+<h3 id="form-stage-3-advanced-features"><a href="./forms/stage3/">Form Stage 3: Advanced Features</a></h3>
+
+<p>Master advanced form features and validation.</p>
+
+<ul>
+  <li>Form validation attributes</li>
+  <li>Required fields</li>
+  <li>Pattern matching</li>
+  <li>Accessibility attributes</li>
+  <li><strong>Challenge</strong>: Final clue before the ultimate form!</li>
+</ul>
+
+<h3 id="form-final-complete-project"><a href="./forms/final/">Form Final: Complete Project</a></h3>
+
+<p>Put it all together with a complete, real-world form.</p>
+
+<ul>
+  <li>Multi-element form integration</li>
+  <li>Accessible form design</li>
+  <li>Proper labeling and grouping</li>
+  <li>Form styling</li>
+  <li><strong>Achievement</strong>: Complete the treasure hunt! 🎉</li>
+</ul>
+
+<h2 id="tips-for-using-these-exercises">Tips for Using These Exercises</h2>
+
+<ol>
+  <li><strong>Start with Preview</strong> - See what the finished result looks like</li>
+  <li><strong>View the Code</strong> - Understand how it’s built by checking the Code tab</li>
+  <li><strong>Read Instructions</strong> - Each exercise has detailed learning objectives</li>
+  <li><strong>Take Notes</strong> - Copy code snippets for reference</li>
+  <li><strong>Modify &amp; Experiment</strong> - Try changing values and see what happens</li>
+  <li><strong>Test in Real Browser</strong> - Open individual exercises in new tabs for full interactivity</li>
+</ol>
+
+<hr />
+
+<h2 id="getting-help">Getting Help</h2>
+
+<p>If you get stuck:</p>
+
+<ul>
+  <li>Review the instructions section for each exercise</li>
+  <li>Check the Code tab to see the source HTML</li>
+  <li>Re-read the main documentation sections</li>
+  <li>Try modifying the code and see what changes</li>
+  <li>Experiment with different HTML tags and attributes</li>
+</ul>
+
+<hr />
+
+<h2 id="challenge-yourself">Challenge Yourself</h2>
+
+<p>After completing exercises:</p>
+
+<ul>
+  <li><strong>Combine what you learned</strong> - Create your own HTML page using multiple concepts</li>
+  <li><strong>Fix the code</strong> - Each exercise has intentional issues to fix with CSS</li>
+  <li><strong>Extend the design</strong> - Add more content or styling</li>
+  <li><strong>Create variations</strong> - Make similar pages with different content</li>
+  <li><strong>Build projects</strong> - Use these skills to create real websites!</li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>&copy; 2026 imageleft - Academy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        font-size: 16px;
+        color: #333;
+        background: white;
+      }
+
+      body {
+        line-height: 1.6;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .site-header {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .site-header .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .site-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #1f2937;
+      }
+
+      .site-title:hover {
+        color: #6366f1;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .site-nav a:hover {
+        color: #6366f1;
+      }
+
+      .page-content {
+        padding: 2rem 0;
+        min-height: calc(100vh - 200px);
+      }
+
+      .site-footer {
+        background: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>
