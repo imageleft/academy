@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databases and APIs - imageleft - Academy</title>
+    <link rel="stylesheet" href="/assets/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <a class="site-title" href="/">imageleft - Academy</a>
+        <nav class="site-nav">
+          <a href="/tracks/">Tracks</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+         
+
+<article class="lesson">
+  <nav class="breadcrumb">
+    <a href="/tracks/">Tracks</a>
+    <span class="separator">/</span>
+    <a href="/tracks/programming/">Programming</a>
+    <span class="separator">/</span>
+    <span class="current">Databases and APIs</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-code">CS 107</span>
+      <span class="badge type-structured">structured</span>
+      <span class="week-badge">Week 7</span>
+    </div>
+    <h1 class="lesson-title">Databases and APIs</h1>
+  </header>
+
+  <div class="lesson-content prose"><p>Every application that stores data needs a database. The database is the core of the system — everything else is built around reading from and writing to it correctly.</p>
+
+<h2 id="types-of-databases">Types of Databases</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Examples</th>
+      <th>Good for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Relational (SQL)</strong></td>
+      <td>PostgreSQL, MySQL, SQLite</td>
+      <td>Structured data with clear relationships</td>
+    </tr>
+    <tr>
+      <td><strong>Document (NoSQL)</strong></td>
+      <td>MongoDB, Firestore</td>
+      <td>Flexible schemas, nested data</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>Redis</td>
+      <td>Caching, sessions, fast lookups</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For most applications you are building, start with a relational database. It forces good data design habits.</p>
+
+<h2 id="sql-basics">SQL Basics</h2>
+
+<p>SQL (Structured Query Language) is how you talk to a relational database:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Create a table</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">UNIQUE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">created_at</span> <span class="nb">TIMESTAMP</span> <span class="k">DEFAULT</span> <span class="n">NOW</span><span class="p">()</span>
+<span class="p">);</span>
+
+<span class="c1">-- Insert a record</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'alice@example.com'</span><span class="p">);</span>
+
+<span class="c1">-- Read records</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">created_at</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">-- Update a record</span>
+<span class="k">UPDATE</span> <span class="n">users</span> <span class="k">SET</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Alice Updated'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- Delete a record</span>
+<span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="relationships">Relationships</h2>
+
+<p>Databases store related data across multiple tables:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">posts</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+  <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">body</span> <span class="nb">TEXT</span><span class="p">,</span>
+  <span class="n">user_id</span> <span class="nb">INT</span> <span class="k">REFERENCES</span> <span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>  <span class="c1">-- foreign key</span>
+  <span class="n">created_at</span> <span class="nb">TIMESTAMP</span> <span class="k">DEFAULT</span> <span class="n">NOW</span><span class="p">()</span>
+<span class="p">);</span>
+
+<span class="c1">-- Join tables to get related data</span>
+<span class="k">SELECT</span> <span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="n">users</span><span class="p">.</span><span class="n">name</span>
+<span class="k">FROM</span> <span class="n">posts</span>
+<span class="k">JOIN</span> <span class="n">users</span> <span class="k">ON</span> <span class="n">posts</span><span class="p">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">users</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="firebase--backend-as-a-service">Firebase — Backend as a Service</h2>
+
+<p>Firebase is a backend platform by Google that gives you a database, file storage, and authentication without managing a server. It is ideal for small to medium applications.</p>
+
+<p><strong>Install and configure in a Next.js app:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>firebase
+</code></pre></div></div>
+
+<p>Create <code class="language-plaintext highlighter-rouge">lib/firebase.ts</code> at the root of your project:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">initializeApp</span><span class="p">,</span> <span class="nx">getApps</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/app</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getFirestore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/firestore</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getAuth</span><span class="p">,</span> <span class="nx">GoogleAuthProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/auth</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getStorage</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/storage</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">firebaseConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">apiKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_API_KEY</span><span class="p">,</span>
+  <span class="na">authDomain</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN</span><span class="p">,</span>
+  <span class="na">projectId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_PROJECT_ID</span><span class="p">,</span>
+  <span class="na">storageBucket</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET</span><span class="p">,</span>
+  <span class="na">messagingSenderId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXT_PUBLIC_FIREBASE_APP_ID</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nf">getApps</span><span class="p">().</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="nf">initializeApp</span><span class="p">(</span><span class="nx">firebaseConfig</span><span class="p">)</span> <span class="p">:</span> <span class="nf">getApps</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nf">getFirestore</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nf">getAuth</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">storage</span> <span class="o">=</span> <span class="nf">getStorage</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">googleProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GoogleAuthProvider</span><span class="p">();</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">db</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">googleProvider</span><span class="p">,</span> <span class="nx">storage</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p>Store all config values in <code class="language-plaintext highlighter-rouge">.env.local</code>, never hardcode them.</p>
+
+<p><strong>Reading and writing with Firestore:</strong></p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">db</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/lib/firebase</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">collection</span><span class="p">,</span>
+  <span class="nx">addDoc</span><span class="p">,</span>
+  <span class="nx">getDocs</span><span class="p">,</span>
+  <span class="nx">doc</span><span class="p">,</span>
+  <span class="nx">updateDoc</span><span class="p">,</span>
+  <span class="nx">deleteDoc</span><span class="p">,</span>
+  <span class="nx">query</span><span class="p">,</span>
+  <span class="nx">where</span><span class="p">,</span>
+  <span class="nx">orderBy</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">firebase/firestore</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Add a document</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">createPost</span><span class="p">(</span><span class="nx">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">body</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">docRef</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">addDoc</span><span class="p">(</span><span class="nf">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="p">,</span>
+    <span class="nx">body</span><span class="p">,</span>
+    <span class="nx">userId</span><span class="p">,</span>
+    <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">(),</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">docRef</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Get all documents in a collection</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">getPosts</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">snapshot</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getDocs</span><span class="p">(</span><span class="nf">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">docs</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">...</span><span class="nx">doc</span><span class="p">.</span><span class="nf">data</span><span class="p">()</span> <span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="c1">// Query with filters</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">getPostsByUser</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">q</span> <span class="o">=</span> <span class="nf">query</span><span class="p">(</span>
+    <span class="nf">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">),</span>
+    <span class="nf">where</span><span class="p">(</span><span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">==</span><span class="dl">'</span><span class="p">,</span> <span class="nx">userId</span><span class="p">),</span>
+    <span class="nf">orderBy</span><span class="p">(</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">desc</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">snapshot</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getDocs</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">docs</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">...</span><span class="nx">doc</span><span class="p">.</span><span class="nf">data</span><span class="p">()</span> <span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="c1">// Update a document</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">updatePost</span><span class="p">(</span><span class="nx">postId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">updates</span><span class="p">:</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nf">updateDoc</span><span class="p">(</span><span class="nf">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">,</span> <span class="nx">postId</span><span class="p">),</span> <span class="nx">updates</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Delete a document</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">deletePost</span><span class="p">(</span><span class="nx">postId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nf">deleteDoc</span><span class="p">(</span><span class="nf">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">,</span> <span class="nx">postId</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="rest-api-design">REST API Design</h2>
+
+<p>A REST API is the interface between your database and your frontend. URLs represent resources, HTTP methods represent actions:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Path</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users</code></td>
+      <td>Get all users</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users/:id</code></td>
+      <td>Get one user</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users</code></td>
+      <td>Create a user</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PUT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users/:id</code></td>
+      <td>Replace a user</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PATCH</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users/:id</code></td>
+      <td>Update part of a user</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DELETE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/api/users/:id</code></td>
+      <td>Delete a user</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="http-status-codes">HTTP Status Codes</h2>
+
+<p>Always return the right status code:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Meaning</th>
+      <th>When to use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200</code></td>
+      <td>OK</td>
+      <td>Successful GET, PUT, PATCH</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">201</code></td>
+      <td>Created</td>
+      <td>Successful POST</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">204</code></td>
+      <td>No Content</td>
+      <td>Successful DELETE</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">400</code></td>
+      <td>Bad Request</td>
+      <td>Invalid input from client</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">401</code></td>
+      <td>Unauthorized</td>
+      <td>Not logged in</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">403</code></td>
+      <td>Forbidden</td>
+      <td>Logged in but not allowed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404</code></td>
+      <td>Not Found</td>
+      <td>Resource does not exist</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">500</code></td>
+      <td>Internal Server Error</td>
+      <td>Something broke on your end</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="data-design-checklist">Data Design Checklist</h2>
+
+<p>Before you build, answer these:</p>
+
+<ul>
+  <li>What entities does the application need? (users, posts, orders…)</li>
+  <li>How are they related to each other?</li>
+  <li>What queries will the application run most often?</li>
+  <li>What fields are required vs optional?</li>
+  <li>What should be unique? (emails, usernames…)</li>
+</ul>
+
+<p>Getting these answers before you write code saves significant time later.</p>
+</div>
+
+  <nav class="lesson-navigation">
+       
+
+    <div class="nav-buttons">
+      
+      <a href="/lessons/cs-101-databases-mindset/" class="nav-button prev-button">
+        <span class="arrow">←</span>
+        <div>
+          <div class="label">Previous</div>
+          <div class="title">The Most Leveraged Box</div>
+        </div>
+      </a>
+       
+      <a href="/lessons/cs-108-testing-mindset/" class="nav-button next-button">
+        <div>
+          <div class="label">Next</div>
+          <div class="title">Effort Is Invisible</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      
+    </div>
+  </nav>
+
+  <style>
+    .lesson {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb .separator {
+      color: #ccc;
+    }
+
+    .breadcrumb .current {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .lesson-header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 2rem;
+    }
+
+    .lesson-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-code {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6366f1;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .type-mindset {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .type-structured {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .week-badge {
+      background: #f0f0f0;
+      color: #666;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .lesson-title {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .lesson-content {
+      margin: 2rem 0;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .lesson-content p {
+      margin-bottom: 1.25rem;
+    }
+
+    .lesson-content h1,
+    .lesson-content h2,
+    .lesson-content h3,
+    .lesson-content h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .lesson-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .lesson-content h3 {
+      font-size: 1.35rem;
+    }
+
+    .lesson-content h4 {
+      font-size: 1.1rem;
+    }
+
+    .lesson-content ul,
+    .lesson-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+
+    .lesson-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      color: #666;
+      font-style: italic;
+    }
+
+    .lesson-content code {
+      background: #f3f4f6;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.9em;
+      color: #dc2626;
+    }
+
+    .lesson-content pre {
+      background: #1f2937;
+      color: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    .lesson-content pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .lesson-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .lesson-content th,
+    .lesson-content td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .lesson-content th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .lesson-content tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    .lesson-navigation {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .nav-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .nav-button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: #1f2937;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+
+    .nav-button .arrow {
+      font-size: 1.5rem;
+      color: #6366f1;
+    }
+
+    .nav-button .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .nav-button .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-top: 0.25rem;
+    }
+
+    .next-button {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    @media (max-width: 640px) {
+      .nav-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>&copy; 2026 imageleft - Academy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        font-size: 16px;
+        color: #333;
+        background: white;
+      }
+
+      body {
+        line-height: 1.6;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .site-header {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .site-header .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .site-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #1f2937;
+      }
+
+      .site-title:hover {
+        color: #6366f1;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .site-nav a:hover {
+        color: #6366f1;
+      }
+
+      .page-content {
+        padding: 2rem 0;
+        min-height: calc(100vh - 200px);
+      }
+
+      .site-footer {
+        background: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>
