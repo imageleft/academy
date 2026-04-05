@@ -1,0 +1,32 @@
+{
+  "name": "web-dev-for-beginners",
+  "version": "1.0.0",
+  "description": "Interactive web development learning project with React and Tailwind",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"bundle exec jekyll serve --livereload\" \"npm run css:watch\"",
+    "build": "npm run css:build && JEKYLL_ENV=production bundle exec jekyll build",
+    "css:build": "tailwindcss -i ./assets/css/input.css -o ./assets/main.css --minify",
+    "css:watch": "tailwindcss -i ./assets/css/input.css -o ./assets/main.css --watch",
+    "preview": "bundle exec jekyll serve",
+    "clean": "bundle exec jekyll clean",
+    "deploy": "npm run build && gh-pages -d _site",
+    "deploy:prod": "NODE_ENV=production npm run build && gh-pages -d dist",
+    "lint": "eslint src --ext ts,tsx"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^9.2.1",
+    "gh-pages": "^6.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.3.0"
+  }
+}

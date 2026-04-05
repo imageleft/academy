@@ -1,0 +1,49 @@
+title: imageleft - Academy
+email: imagelefthq@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Free, public tracks and lessons on programming, sales, marketing, writing, and psychology.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: imagelefthq
+github_username: imageleft
+
+# Build settings
+port: 4000
+host: 127.0.0.1
+liveload: true
+plugins:
+  - jekyll-feed
+
+# Collections
+collections:
+  tracks:
+    output: true
+    permalink: /tracks/:slug/
+  lessons:
+    output: true
+    permalink: /lessons/:slug/
+
+# Sass configuration to suppress deprecation warnings
+sass:
+  verbose: false
+  quiet_deps: true
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

@@ -1,0 +1,218 @@
+---
+layout: default
+---
+
+<article class="track">
+  <div class="track-header">
+    <a href="/tracks/" class="back-link">← Back to Tracks</a>
+
+    <h1 class="track-title">{{ page.title }}</h1>
+    <p class="track-tagline">{{ page.tagline }}</p>
+
+    <div class="track-meta">
+      <span class="badge level-badge">{{ page.level }}</span>
+      <span class="weeks-count">{{ page.weeks }} weeks</span>
+    </div>
+  </div>
+
+  {% if page.outcomes %}
+  <div class="outcomes">
+    <h3>Outcomes</h3>
+    <div class="outcome-pills">
+      {% for outcome in page.outcomes %}
+      <span class="pill">{{ outcome }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="lessons-section">
+    <h2>Lessons</h2>
+
+    {% assign track_lessons = site.lessons | where: "track", page.slug | sort:
+    "week" %} {% if track_lessons.size > 0 %}
+    <p class="lesson-count">
+      {{ track_lessons.size }} lesson{{ track_lessons.size | pluralize }}
+    </p>
+
+    <ul class="lessons-list">
+      {% for lesson in track_lessons %}
+      <li class="lesson-item">
+        <a href="{{ lesson.url }}" class="lesson-link">
+          <span class="lesson-code">{{ lesson.code }}</span>
+          <span class="lesson-title">{{ lesson.title }}</span>
+          <span class="lesson-type badge type-{{ lesson.type }}"
+            >{{ lesson.type }}</span
+          >
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-lessons">No lessons yet.</p>
+    {% endif %}
+  </div>
+
+  <style>
+    .track {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .track-header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 2rem;
+    }
+
+    .track-title {
+      font-size: 2.5rem;
+      margin: 1rem 0 0.5rem 0;
+      font-weight: 700;
+    }
+
+    .track-tagline {
+      font-size: 1.2rem;
+      color: #666;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    .track-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .level-badge {
+      background: #e0e7ff;
+      color: #4f46e5;
+    }
+
+    .weeks-count {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .outcomes {
+      margin-bottom: 3rem;
+    }
+
+    .outcomes h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .outcome-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #374151;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .lessons-section {
+      margin-top: 2rem;
+    }
+
+    .lessons-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .lesson-count {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .lessons-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .lesson-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .lesson-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f9fafb;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s;
+    }
+
+    .lesson-link:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+
+    .lesson-code {
+      min-width: 80px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6366f1;
+    }
+
+    .lesson-title {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .type-mindset {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .type-structured {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .no-lessons {
+      color: #999;
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+  </style>
+</article>
