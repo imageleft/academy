@@ -14,8 +14,6 @@ You get wrapped up in the process and it starts to feel like the effort itself i
 
 It is not.
 
----
-
 Clients do not pay for how hard you tried.
 They do not pay for the hours you put in, or for how many bugs you struggled with before fixing the last one.
 

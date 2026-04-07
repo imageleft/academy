@@ -14,8 +14,6 @@ You get wrapped up in the process and it starts to feel like the effort itself i
 
 It is not.
 
----
-
 Clients do not pay for how hard you tried.
 They do not pay for the hours you put in, or for how many bugs you struggled with before fixing the last one.
 
@@ -33,8 +31,6 @@ Your clients are the same.
 They value your work when it meets their needs.
 Not when it represents your hard work.
 
----
-
 This is exactly why testing and deployment matter.
 
 A feature that works on your machine and nowhere else has not been delivered.
@@ -46,8 +42,6 @@ Deployment is the mechanism you use to get it in front of users.
 
 Neither is glamorous.
 Both are what separate a developer who ships from one who builds.
-
----
 
 Shifting your mindset toward output does not mean cutting corners.
 

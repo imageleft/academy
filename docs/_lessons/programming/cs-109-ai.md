@@ -3,17 +3,17 @@ title: AI Integration
 code: CS 109
 track: programming
 week: 9
-type: structured
+type: mindset
 layout: lesson
 ---
 
-AI tools are now a standard part of software development. The developers who use them well ship faster, debug faster, and build things that previously required larger teams. This is the practical guide to integrating AI into your workflow.
+AI tools are now a part of software development. The developers who use them well ship faster, debug faster, and build things that previously required larger teams. This is a guide to integrating AI into your workflow.
 
-## Using AI in Your Development Environment
+## Using AI in Development
 
 ### Cursor IDE
 
-Cursor is a code editor built on top of VSCode with AI built into every interaction:
+Cursor is a code editor built on top of VSCode with AI built-in:
 
 ```
 Tab         → accept AI autocomplete suggestion
@@ -39,7 +39,7 @@ function validateEmail(email) {
 
 Context matters. The more specific your prompt, the more useful the output.
 
-## Calling the OpenAI API
+## OpenAI API
 
 ```bash
 npm install openai
@@ -233,4 +233,5 @@ Use your judgment for the things it does not.
 ```
 
 The goal is never to accept AI output blindly.
+
 The goal is to use it as a starting point that you then understand, verify, and own.

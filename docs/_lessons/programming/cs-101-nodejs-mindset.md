@@ -15,8 +15,6 @@ Progress is visible. It feels good.
 
 Then you hit 80%.
 
----
-
 The last 20% is where most projects die.
 
 Not from a dramatic failure.
@@ -33,8 +31,6 @@ Cleanup.
 None of these feel creative.
 All of them are what separates a project that ships from one that lives forever on a local machine.
 
----
-
 There are two types of builders.
 
 Starters generate ideas and build initial momentum.
@@ -50,8 +46,6 @@ Most people are starters.
 Fewer are finishers.
 The ones who build things that reach users have learned to be both.
 
----
-
 This applies directly to backend work.
 
 The first endpoint is exciting.
@@ -61,8 +55,6 @@ The logging setup is invisible until the day it saves you hours of debugging.
 The environment configuration is annoying until you deploy to a new machine and everything just works.
 
 All of that unglamorous work is what makes a server production-ready.
-
----
 
 Ask yourself honestly when you pick up a backend task:
 

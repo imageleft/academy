@@ -14,8 +14,6 @@ When something is broken at the root, adjustments at the surface do not hold.
 They look like fixes for a day, maybe a week.
 Then the same problem surfaces again in a slightly different shape.
 
----
-
 This applies directly to how most developers approach codebases.
 
 A bug appears.
@@ -31,8 +29,6 @@ When you can see the full history of every change — who made it, when, and why
 You have a record.
 You can trace a problem back to the commit that introduced it.
 You can understand the decision that was made before you arrived.
-
----
 
 Broken systems also accumulate.
 
@@ -51,8 +47,6 @@ Write a descriptive commit message every time.
 Keep your commits small and focused — one change per commit.
 When you encounter a broken piece of code, fix it properly or leave a clear note.
 Never leave the codebase worse than you found it.
-
----
 
 Point out shortcomings as soon as you spot them.
 Not aggressively. Not as blame.
