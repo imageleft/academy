@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Most Leveraged Box - imageleft - Academy</title>
+    <title>Product Launch: Proof That You Can Build - imageleft - Academy</title>
     <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
@@ -29,61 +29,118 @@
     <span class="separator">/</span>
     <a href="/tracks/programming/">Programming</a>
     <span class="separator">/</span>
-    <span class="current">The Most Leveraged Box</span>
+    <span class="current">Product Launch: Proof That You Can Build</span>
   </nav>
 
   <header class="lesson-header">
     <div class="lesson-meta">
-      <span class="lesson-code">CS 107</span>
+      <span class="lesson-code"></span>
       <span class="badge type-mindset">mindset</span>
-      <span class="week-badge">Week 7</span>
+      <span class="week-badge">Week 11</span>
     </div>
-    <h1 class="lesson-title">The Most Leveraged Box</h1>
+    <h1 class="lesson-title">Product Launch: Proof That You Can Build</h1>
   </header>
 
-  <div class="lesson-content prose"><p>Everything around you is a box.</p>
+  <div class="lesson-content prose"><h1 id="product-catalog">Product Catalog</h1>
 
-<p>A country is a box with borders.
-A skill is a box with rules.
-A company is a box with culture and incentives.</p>
+<h2 id="launched-products-are-evidence-to-start-building">Launched Products are Evidence to Start Building</h2>
 
-<p>The smartest people you know have mastered the art of creating boxes for others to live comfortably inside — so comfortably that you barely notice the walls.</p>
+<p>A resume says what you did.
+A portfolio shows what you can do.</p>
 
-<p>A database is a box.</p>
+<p>For a founder, a list of launched products with paying users show your capabilities.</p>
 
-<p>Probably the most leveraged box in existence.</p>
+<p>For a developer in 2026, a public GitHub profile and a deployed portfolio are proof of readiness.</p>
 
-<p>Every social platform you use is built on one.
-When you post something, a write happens.
-When you scroll, reads happen by the millions.
-When a company sells your attention to advertisers, a query is running somewhere to figure out which ad to show you.</p>
+<h1 id="what-goes-in-a-catalog">What Goes In a Catalog</h1>
 
-<p>Facebook stores over 300 petabytes of data.
-YouTube handles 720,000 hours of new video every single day.
-These are not just storage numbers. They are leverage numbers.
-The data in those boxes is the actual product.</p>
+<h2 id="quality-over-quantity">Quality Over Quantity</h2>
 
-<p>Understanding databases means understanding leverage.</p>
+<p>Three to five projects beats ten mediocre ones.</p>
 
-<p>A well-designed database makes queries fast and cheap.
-A poorly designed one makes every feature slow and every scale-up painful.</p>
+<p><strong>What makes a project strong:</strong></p>
 
-<p>The decisions you make when you design a schema — what to index, how to relate tables, what to normalise — will affect performance for as long as that schema exists.
-Bad decisions made early compound over time.
-Good decisions made early scale for free.</p>
+<ul>
+  <li>It is deployed and live</li>
+  <li>It solves a real problem for a user</li>
+  <li>The code is readable and on GitHub with a good README</li>
+  <li>You can explain decisions made</li>
+</ul>
 
-<p>For beginners, the most important mindset shift is this:</p>
+<p><strong>What to include per project:</strong></p>
+<ul>
+  <li>What it does and who it’s for</li>
+  <li>The technical stack used</li>
+  <li>The hardest problem you solved building it</li>
+  <li>A live link and a GitHub link</li>
+</ul>
 
-<p>The database is not where data lives after the real work is done.
-The database is the core of the application.
-Everything else: API, frontend, business logic exists to read from or write to the database.</p>
+<h1 id="catalog-site">Catalog Site</h1>
 
-<p>Get the data model right first.
-The code that wraps it is easier to change than the data model underneath it.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/                  → Hero + 2-3 featured projects
+/projects          → All projects with filters
+/projects/:slug    → Individual project deep-dive
+/about             → Background, stack, what you're looking for
+</code></pre></div></div>
 
-<p>Once you understand that, you start designing from the data outward instead of from the interface inward.
-That is a different way of thinking.
-It is also a better one.</p>
+<p>The homepage must answer in 5 seconds:</p>
+<ul>
+  <li>Who are you?</li>
+  <li>What do you build?</li>
+  <li>Can I see it?</li>
+</ul>
+
+<p>If it takes longer than that, the portfolio is failing its job.</p>
+
+<h1 id="performance--seo-basics">Performance &amp; SEO Basics</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Lighthouse targets for a portfolio site</span>
+<span class="nx">Performance</span><span class="p">:</span>    <span class="o">&gt;</span> <span class="mi">90</span>
+<span class="nx">Accessibility</span><span class="p">:</span>  <span class="o">&gt;</span> <span class="mi">90</span>
+<span class="nx">Best</span> <span class="nx">Practices</span><span class="p">:</span> <span class="o">&gt;</span> <span class="mi">90</span>
+<span class="nx">SEO</span><span class="p">:</span>            <span class="o">&gt;</span> <span class="mi">90</span>
+</code></pre></div></div>
+
+<p>Quick wins:</p>
+<ul>
+  <li>Compress all images (use WebP)</li>
+  <li>Load fonts with <code class="language-plaintext highlighter-rouge">font-display: swap</code></li>
+  <li>Add <code class="language-plaintext highlighter-rouge">&lt;meta&gt;</code> description and Open Graph tags for LinkedIn shares</li>
+  <li>Ensure every page has a unique <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code></li>
+</ul>
+
+<p>Run Google Lighthouse before publishing. Fix everything under 90.</p>
+
+<hr />
+
+<h1 id="profile-optimization">Profile Optimization</h1>
+
+<p>A strong profile:</p>
+
+<ul>
+  <li>Has pinned products section showing your best work.</li>
+  <li>Has a detailed documentation</li>
+  <li>Shows consistent growth</li>
+  <li>Has clear instructions on usage</li>
+</ul>
+
+<h1 id="writing-project-descriptions">Writing Project Descriptions</h1>
+
+<p>For every project, write:</p>
+
+<p><strong>One line:</strong> “A full-stack expense tracker for small business owners, built with React, Node.js, and SQLite.”</p>
+
+<p><strong>The problem:</strong> “Small business owners to track expenses in WhatsApp messages and Excel. They lose data and miss deductions.”</p>
+
+<p><strong>Your solution:</strong> “A mobile-first PWA with receipt photo upload, auto-categorization using Claude API, and monthly export.”</p>
+
+<p><strong>The outcome:</strong> “Used by 3 pilot businesses. Saved 4+ hours per month per business in manual reconciliation.”</p>
+
+<p>This is the difference between a catalog that gets ignored and one that gets replies.</p>
+
+<blockquote>
+  <p>Next lesson: Founder Prep: turn ideas into products.</p>
+</blockquote>
 </div>
 
   <nav class="lesson-navigation">
@@ -91,18 +148,18 @@ It is also a better one.</p>
 
     <div class="nav-buttons">
       
-      <a href="/lessons/cs-101-nodejs/" class="nav-button prev-button">
+      <a href="/lessons/cs-110-ai-tools/" class="nav-button prev-button">
         <span class="arrow">←</span>
         <div>
           <div class="label">Previous</div>
-          <div class="title">Node.js and Async Programming</div>
+          <div class="title">AI Dev Tools: Build 10x Faster</div>
         </div>
       </a>
        
-      <a href="/lessons/cs-101-databases/" class="nav-button next-button">
+      <a href="/lessons/cs-113-founder/" class="nav-button next-button">
         <div>
           <div class="label">Next</div>
-          <div class="title">Databases and APIs</div>
+          <div class="title">Founder Preparation: Your Skills Are a Business</div>
         </div>
         <span class="arrow">→</span>
       </a>

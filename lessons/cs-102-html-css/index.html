@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML & CSS: Structure and Style - imageleft - Academy</title>
+    <link rel="stylesheet" href="/assets/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <a class="site-title" href="/">imageleft - Academy</a>
+        <nav class="site-nav">
+          <a href="/tracks/">Tracks</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="wrapper">
+         
+
+<article class="lesson">
+  <nav class="breadcrumb">
+    <a href="/tracks/">Tracks</a>
+    <span class="separator">/</span>
+    <a href="/tracks/programming/">Programming</a>
+    <span class="separator">/</span>
+    <span class="current">HTML & CSS: Structure and Style</span>
+  </nav>
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="lesson-code"></span>
+      <span class="badge type-structured">structured</span>
+      <span class="week-badge">Week 2</span>
+    </div>
+    <h1 class="lesson-title">HTML & CSS: Structure and Style</h1>
+  </header>
+
+  <div class="lesson-content prose"><h1 id="html--css">HTML &amp; CSS</h1>
+<h2 id="html-is-the-skeleton-css-is-the-skin">HTML is the skeleton. CSS is the skin.</h2>
+
+<p>Every website you’ve ever used is built on two foundational technologies.</p>
+
+<p><strong>HTML</strong> (HyperText Markup Language) — defines what content exists and its meaning.
+<strong>CSS</strong> (Cascading Style Sheets) — defines how that content looks.</p>
+
+<p>Learning them together is learning to think in layers: structure first, presentation second.</p>
+
+<h1 id="html-semantic-markup">HTML: Semantic Markup</h1>
+<h2 id="tags-that-mean-something">Tags that mean something</h2>
+
+<p>Bad HTML: <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> for everything.
+Good HTML: the right tag for the right content.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;header&gt;</code></td>
+      <td>Top of page or section</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code></td>
+      <td>Navigation links</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;main&gt;</code></td>
+      <td>Primary page content</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;article&gt;</code></td>
+      <td>Self-contained content</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;section&gt;</code></td>
+      <td>Thematic grouping</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code></td>
+      <td>Bottom of page or section</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Semantic HTML improves accessibility, SEO, and code readability simultaneously.</p>
+
+<h1 id="html-forms--inputs">HTML: Forms &amp; Inputs</h1>
+<h2 id="where-users-interact-with-your-page">Where users interact with your page</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/submit"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">required</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"message"</span><span class="nt">&gt;</span>Message<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"message"</span> <span class="na">name=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Send<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>Every input needs a <code class="language-plaintext highlighter-rouge">label</code>. Every form needs an <code class="language-plaintext highlighter-rouge">action</code>.
+The <code class="language-plaintext highlighter-rouge">required</code> attribute handles basic validation before JavaScript is needed.</p>
+
+<h1 id="css-the-box-model">CSS: The Box Model</h1>
+<h2 id="everything-is-a-box">Everything is a box</h2>
+
+<p>Every HTML element is a rectangular box with four properties:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────┐
+│        MARGIN           │  ← Space outside the element
+│  ┌───────────────────┐  │
+│  │     BORDER        │  │  ← Optional visible edge
+│  │  ┌─────────────┐  │  │
+│  │  │   PADDING   │  │  │  ← Space inside, around content
+│  │  │  ┌───────┐  │  │  │
+│  │  │  │CONTENT│  │  │  │
+│  │  │  └───────┘  │  │  │
+│  │  └─────────────┘  │  │
+│  └───────────────────┘  │
+└─────────────────────────┘
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">box-sizing: border-box</code> makes width calculations predictable. Use it on everything.</p>
+
+<h1 id="css-flexbox">CSS: Flexbox</h1>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">space-between</span><span class="p">;</span> <span class="c">/* horizontal alignment */</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>            <span class="c">/* vertical alignment */</span>
+  <span class="nl">gap</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>                      <span class="c">/* space between children */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Flexbox solves one-dimensional layouts (row or column).
+For two-dimensional layouts (rows AND columns simultaneously) → use CSS Grid.</p>
+
+<p>Center anything with two lines:</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">display</span><span class="o">:</span> <span class="nt">flex</span><span class="o">;</span>
+<span class="nt">place-items</span><span class="o">:</span> <span class="nt">center</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h1 id="responsive-design">Responsive Design</h1>
+<h2 id="mobile-first">Mobile first</h2>
+
+<p>Majority of users are on mobile. Build mobile-first.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Mobile styles (default) */</span>
+<span class="nc">.card</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* Tablet and above */</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">768px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.card</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">48%</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">/* Desktop and above */</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1024px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.card</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">31%</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Start narrow. Add complexity as the screen grows.
+This produces leaner CSS and better mobile performance.</p>
+
+<blockquote>
+  <p>Next lesson: Advanced CSS &amp; Git: animations, Grid, and version control.</p>
+</blockquote>
+</div>
+
+  <nav class="lesson-navigation">
+       
+
+    <div class="nav-buttons">
+      
+      <a href="/lessons/cs-101-operators/" class="nav-button prev-button">
+        <span class="arrow">←</span>
+        <div>
+          <div class="label">Previous</div>
+          <div class="title">Understanding Operators</div>
+        </div>
+      </a>
+       
+      <a href="/lessons/cs-101-git-midset/" class="nav-button next-button">
+        <div>
+          <div class="label">Next</div>
+          <div class="title">Fix the Root, Not the Surface</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      
+    </div>
+  </nav>
+
+  <style>
+    .lesson {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb .separator {
+      color: #ccc;
+    }
+
+    .breadcrumb .current {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .lesson-header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 2rem;
+    }
+
+    .lesson-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-code {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6366f1;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .type-mindset {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .type-structured {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .week-badge {
+      background: #f0f0f0;
+      color: #666;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .lesson-title {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .lesson-content {
+      margin: 2rem 0;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .lesson-content p {
+      margin-bottom: 1.25rem;
+    }
+
+    .lesson-content h1,
+    .lesson-content h2,
+    .lesson-content h3,
+    .lesson-content h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .lesson-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .lesson-content h3 {
+      font-size: 1.35rem;
+    }
+
+    .lesson-content h4 {
+      font-size: 1.1rem;
+    }
+
+    .lesson-content ul,
+    .lesson-content ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+
+    .lesson-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-content blockquote {
+      border-left: 4px solid #6366f1;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      color: #666;
+      font-style: italic;
+    }
+
+    .lesson-content code {
+      background: #f3f4f6;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.9em;
+      color: #dc2626;
+    }
+
+    .lesson-content pre {
+      background: #1f2937;
+      color: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    .lesson-content pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .lesson-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .lesson-content th,
+    .lesson-content td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .lesson-content th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .lesson-content tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    .lesson-navigation {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .nav-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .nav-button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: #1f2937;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+
+    .nav-button .arrow {
+      font-size: 1.5rem;
+      color: #6366f1;
+    }
+
+    .nav-button .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .nav-button .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-top: 0.25rem;
+    }
+
+    .next-button {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    @media (max-width: 640px) {
+      .nav-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>&copy; 2026 imageleft - Academy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        font-size: 16px;
+        color: #333;
+        background: white;
+      }
+
+      body {
+        line-height: 1.6;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .site-header {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .site-header .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .site-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #1f2937;
+      }
+
+      .site-title:hover {
+        color: #6366f1;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .site-nav a:hover {
+        color: #6366f1;
+      }
+
+      .page-content {
+        padding: 2rem 0;
+        min-height: calc(100vh - 200px);
+      }
+
+      .site-footer {
+        background: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>

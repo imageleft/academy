@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Most Leveraged Box - imageleft - Academy</title>
+    <title>AI Dev Tools: Build 10x Faster - imageleft - Academy</title>
     <link rel="stylesheet" href="/assets/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
@@ -29,61 +29,117 @@
     <span class="separator">/</span>
     <a href="/tracks/programming/">Programming</a>
     <span class="separator">/</span>
-    <span class="current">The Most Leveraged Box</span>
+    <span class="current">AI Dev Tools: Build 10x Faster</span>
   </nav>
 
   <header class="lesson-header">
     <div class="lesson-meta">
-      <span class="lesson-code">CS 107</span>
-      <span class="badge type-mindset">mindset</span>
-      <span class="week-badge">Week 7</span>
+      <span class="lesson-code"></span>
+      <span class="badge type-structured">structured</span>
+      <span class="week-badge">Week 10</span>
     </div>
-    <h1 class="lesson-title">The Most Leveraged Box</h1>
+    <h1 class="lesson-title">AI Dev Tools: Build 10x Faster</h1>
   </header>
 
-  <div class="lesson-content prose"><p>Everything around you is a box.</p>
+  <div class="lesson-content prose"><h1 id="ai-dev-tools">AI Dev Tools</h1>
 
-<p>A country is a box with borders.
-A skill is a box with rules.
-A company is a box with culture and incentives.</p>
+<h2 id="ai-doesnt-replace-the-developer-it-replaces-the-developer-who-doesnt-use-ai">AI doesn’t replace the developer. It replaces the developer who doesn’t use AI.</h2>
 
-<p>The smartest people you know have mastered the art of creating boxes for others to live comfortably inside — so comfortably that you barely notice the walls.</p>
+<p>The gap between developers who use AI tools effectively and those who don’t is already measurable in output per day.</p>
 
-<p>A database is a box.</p>
+<p>It will only widen.</p>
 
-<p>Probably the most leveraged box in existence.</p>
+<p>This lesson is not about using AI as a crutch.
+It is about using AI as a multiplier.</p>
 
-<p>Every social platform you use is built on one.
-When you post something, a write happens.
-When you scroll, reads happen by the millions.
-When a company sells your attention to advertisers, a query is running somewhere to figure out which ad to show you.</p>
+<h1 id="cursor-ide">Cursor IDE</h1>
 
-<p>Facebook stores over 300 petabytes of data.
-YouTube handles 720,000 hours of new video every single day.
-These are not just storage numbers. They are leverage numbers.
-The data in those boxes is the actual product.</p>
+<h2 id="ai-native-coding">AI-native coding</h2>
 
-<p>Understanding databases means understanding leverage.</p>
+<p>Cursor is a fork of VS Code with AI deeply integrated.</p>
 
-<p>A well-designed database makes queries fast and cheap.
-A poorly designed one makes every feature slow and every scale-up painful.</p>
+<p><strong>Core features:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Cmd+K</code>: inline edit: select code, describe the change, it applies it</li>
+  <li><code class="language-plaintext highlighter-rouge">Cmd+L</code>: chat panel: ask questions about your codebase with full file context</li>
+  <li><code class="language-plaintext highlighter-rouge">Tab</code>: autocomplete that finishes multi-line logic, not just variable names</li>
+  <li><code class="language-plaintext highlighter-rouge">@file</code>: reference specific files in your prompt</li>
+</ul>
 
-<p>The decisions you make when you design a schema — what to index, how to relate tables, what to normalise — will affect performance for as long as that schema exists.
-Bad decisions made early compound over time.
-Good decisions made early scale for free.</p>
+<h1 id="ai-prompting-for-code">AI Prompting for Code</h1>
 
-<p>For beginners, the most important mindset shift is this:</p>
+<h2 id="garbage-in-garbage-out">Garbage in, garbage out</h2>
 
-<p>The database is not where data lives after the real work is done.
-The database is the core of the application.
-Everything else: API, frontend, business logic exists to read from or write to the database.</p>
+<p><strong>Weak prompt:</strong></p>
+<blockquote>
+  <p>“Fix my code”</p>
+</blockquote>
 
-<p>Get the data model right first.
-The code that wraps it is easier to change than the data model underneath it.</p>
+<p><strong>Strong prompt:</strong></p>
+<blockquote>
+  <p>“This Express route returns a 500 error when <code class="language-plaintext highlighter-rouge">req.body.email</code> is undefined.</p>
+</blockquote>
 
-<p>Once you understand that, you start designing from the data outward instead of from the interface inward.
-That is a different way of thinking.
-It is also a better one.</p>
+<blockquote>
+  <p>The route should validate that email exists and return a 400 with the message</p>
+</blockquote>
+
+<blockquote>
+  <p>‘Email is required’ if it’s missing. Here’s the current code: [paste]”</p>
+</blockquote>
+
+<p>The more context you give, the more accurate the output.</p>
+
+<h1 id="ai-for-debugging">AI for Debugging</h1>
+
+<p>When stuck on a bug:</p>
+
+<ol>
+  <li>Paste the error message + stack trace into Cursor chat</li>
+  <li>Add: “Here is the function that’s failing: [paste]”</li>
+  <li>Ask: “What is causing this error and what is the fix?”</li>
+</ol>
+
+<p>For 80% of bugs, this produces a correct answer in under 30 seconds.</p>
+
+<p>For the other 20%: the AI explanation gives you enough context to find the answer yourself.</p>
+
+<p>Never blindly apply AI fixes. Read the explanation. Understand the fix. Then apply it.</p>
+
+<h1 id="ai-for-code-review">AI for Code Review</h1>
+
+<h2 id="catching-problems-before-they-ship">Catching problems before they ship</h2>
+
+<p>Before submitting any significant code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Prompt: "Review this function for:
+1. Security vulnerabilities
+2. Edge cases not handled
+3. Performance issues
+4. Anything that could fail in production
+
+[paste code]"
+</code></pre></div></div>
+
+<p>AI code review catches the obvious class of issues instantly.
+It is not a replacement for human review on critical paths — but it raises the floor significantly.</p>
+
+<h1 id="the-ai-workflow-rules">The AI Workflow Rules</h1>
+<h2 id="using-tools-without-becoming-dependent-on-them">Using tools without becoming dependent on them</h2>
+
+<p><strong>Rule 1:</strong> Understand before you use. If you can’t explain what the AI-generated code does, you don’t own it.</p>
+
+<p><strong>Rule 2:</strong> Test everything AI writes. AI produces plausible code, not necessarily correct code.</p>
+
+<p><strong>Rule 3:</strong> Use AI for speed, not for thinking. Architecture decisions, system design, and tradeoffs require your judgment.</p>
+
+<p><strong>Rule 4:</strong> Your prompting skill is a programming skill. Invest in it.</p>
+
+<p>The developer who uses AI best is not the one who delegates the most. It is the one who gives AI the most precise instructions and validates the output most rigorously.</p>
+
+<blockquote>
+  <p>Next lesson: Product catalog: presenting everything you’ve built.</p>
+</blockquote>
 </div>
 
   <nav class="lesson-navigation">
@@ -91,18 +147,18 @@ It is also a better one.</p>
 
     <div class="nav-buttons">
       
-      <a href="/lessons/cs-101-nodejs/" class="nav-button prev-button">
+      <a href="/lessons/cs-109-ai/" class="nav-button prev-button">
         <span class="arrow">←</span>
         <div>
           <div class="label">Previous</div>
-          <div class="title">Node.js and Async Programming</div>
+          <div class="title">AI Integration</div>
         </div>
       </a>
        
-      <a href="/lessons/cs-101-databases/" class="nav-button next-button">
+      <a href="/lessons/cs-112-launch/" class="nav-button next-button">
         <div>
           <div class="label">Next</div>
-          <div class="title">Databases and APIs</div>
+          <div class="title">Product Launch: Proof That You Can Build</div>
         </div>
         <span class="arrow">→</span>
       </a>
