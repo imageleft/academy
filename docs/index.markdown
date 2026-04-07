@@ -11,8 +11,8 @@ title: imageleft - Academy
 <div class="home-sections">
   <section class="home-section tracks-section w-[80vw] m-auto">
     <div class="section-header">
-      <h2>Academy Tracks</h2>
-      <p>Comprehensive learning journeys with lessons and outcomes</p>
+      <h2>Academy</h2>
+      <p>Comprehensive lessons and outcomes</p>
     </div>
 
     <div class="cards-grid">
@@ -23,62 +23,12 @@ title: imageleft - Academy
           <h3>{{ track.title }}</h3>
           <p class="card-tagline">{{ track.tagline }}</p>
           <div class="card-meta">
-            <span class="badge-small">{{ lesson_count }} lesson{{ lesson_count | pluralize }}</span>
+            <span class="badge-small">{{ lesson_count }} lessons</span>
             <span class="badge-small">{{ track.weeks }} weeks</span>
           </div>
           <div class="card-footer">Explore →</div>
         </a>
       {% endfor %}
-    </div>
-
-  </section>
-
-  <section class="home-section exercises-section">
-    <div class="section-header">
-      <h2>Interactive Exercises</h2>
-      <p>Practice with hands-on coding, forms, tables, and more</p>
-    </div>
-
-    <div class="cards-grid">
-      <a href="/exercises/headings/" class="card">
-        <div class="card-badge">Beginner</div>
-        <h3>Headings</h3>
-        <p class="card-tagline">Learn HTML heading hierarchy and semantic markup</p>
-        <div class="card-meta">
-          <span class="badge-small">HTML</span>
-        </div>
-        <div class="card-footer">Start →</div>
-      </a>
-
-      <a href="/exercises/links/" class="card">
-        <div class="card-badge">Beginner</div>
-        <h3>Links</h3>
-        <p class="card-tagline">HTML links, navigation, and anchor elements</p>
-        <div class="card-meta">
-          <span class="badge-small">HTML</span>
-        </div>
-        <div class="card-footer">Start →</div>
-      </a>
-
-      <a href="/exercises/tables/" class="card">
-        <div class="card-badge">Beginner</div>
-        <h3>Tables</h3>
-        <p class="card-tagline">Create structured data with tables and styling</p>
-        <div class="card-meta">
-          <span class="badge-small">HTML</span>
-        </div>
-        <div class="card-footer">Start →</div>
-      </a>
-
-      <a href="/exercises/forms/stage1/" class="card">
-        <div class="card-badge">Beginner</div>
-        <h3>Forms Intro</h3>
-        <p class="card-tagline">Build a HTML form with inputs and labels</p>
-        <div class="card-meta">
-          <span class="badge-small">HTML</span>
-        </div>
-        <div class="card-footer">Start →</div>
-      </a>
     </div>
 
   </section>

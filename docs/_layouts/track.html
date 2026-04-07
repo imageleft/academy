@@ -32,7 +32,7 @@ layout: default
     {% assign track_lessons = site.lessons | where: "track", page.slug | sort:
     "week" %} {% if track_lessons.size > 0 %}
     <p class="lesson-count">
-      {{ track_lessons.size }} lesson{{ track_lessons.size | pluralize }}
+      {{ track_lessons.size }} lessons
     </p>
 
     <ul class="lessons-list">

@@ -1,9 +1,10 @@
 title: imageleft - Academy
 email: imagelefthq@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Free, public tracks and lessons on programming, sales, marketing, writing, and psychology.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  Free lessons on programming, sales, marketing, writing, and psychology.
+baseurl: "/academy"
+url: "https://imageleft.github.io"
+
 twitter_username: imagelefthq
 github_username: imageleft
 
