@@ -4,7 +4,7 @@ layout: default
 
 <article class="track">
   <div class="track-header">
-    <a href="/tracks/" class="back-link">← Back to Tracks</a>
+    <a href="{{ '/tracks/' | relative_url }}" class="back-link">← Back to Tracks</a>
 
     <h1 class="track-title">{{ page.title }}</h1>
     <p class="track-tagline">{{ page.tagline }}</p>
@@ -38,7 +38,7 @@ layout: default
     <ul class="lessons-list">
       {% for lesson in track_lessons %}
       <li class="lesson-item">
-        <a href="{{ lesson.url }}" class="lesson-link">
+        <a href="{{ lesson.url | relative_url }}" class="lesson-link">
           <span class="lesson-code">{{ lesson.code }}</span>
           <span class="lesson-title">{{ lesson.title }}</span>
           <span class="lesson-type badge type-{{ lesson.type }}"

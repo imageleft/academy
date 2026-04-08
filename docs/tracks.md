@@ -6,13 +6,11 @@ permalink: /tracks/
 
 <div class="tracks-container">
   <h1 class="tracks-title">Learning Tracks</h1>
-  <p class="tracks-intro">Choose your path. Master one domain at a time.</p>
-
   <div class="tracks-grid">
     {% for track in site.tracks %}
       {% assign lesson_count = site.lessons | where: "track", track.slug | size %}
       
-      <a href="{{ track.url }}" class="track-card">
+      <a href="{{ track.url | relative_url }}" class="track-card">
         <div class="card-header">
           <h2 class="card-title">{{ track.title }}</h2>
           <span class="level-badge">{{ track.level }}</span>
@@ -32,7 +30,7 @@ permalink: /tracks/
         </div>
 
         <div class="card-footer">
-          <span class="lesson-count">{{ lesson_count }} lesson{{ lesson_count | pluralize }}</span>
+          <span class="lesson-count">{{ lesson_count }} lessons</span>
           <span class="arrow">→</span>
         </div>
       </a>

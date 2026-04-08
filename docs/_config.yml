@@ -3,7 +3,7 @@ email: imagelefthq@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Free lessons on programming, sales, marketing, writing, and psychology.
 baseurl: "/academy"
-url: "https://imageleft.github.io"
+url: "https://imageleft.github.io/academy/"
 
 twitter_username: imagelefthq
 github_username: imageleft

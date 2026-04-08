@@ -7,9 +7,9 @@ track_lessons = site.lessons | where: "track", page.track | sort: "week" %}
 
 <article class="lesson">
   <nav class="breadcrumb">
-    <a href="/tracks/">Tracks</a>
+    <a href="{{ '/tracks/' | relative_url }}">Tracks</a>
     <span class="separator">/</span>
-    <a href="/tracks/{{ page.track }}/">{{ track.title }}</a>
+    <a href="{{ '/tracks/' | relative_url }}{{ page.track }}/">{{ track.title }}</a>
     <span class="separator">/</span>
     <span class="current">{{ page.title }}</span>
   </nav>
@@ -36,7 +36,7 @@ track_lessons = site.lessons | where: "track", page.track | sort: "week" %}
 
     <div class="nav-buttons">
       {% if prev_lesson %}
-      <a href="{{ prev_lesson.url }}" class="nav-button prev-button">
+      <a href="{{ prev_lesson.url | relative_url }}" class="nav-button prev-button">
         <span class="arrow">←</span>
         <div>
           <div class="label">Previous</div>
@@ -44,7 +44,7 @@ track_lessons = site.lessons | where: "track", page.track | sort: "week" %}
         </div>
       </a>
       {% endif %} {% if next_lesson %}
-      <a href="{{ next_lesson.url }}" class="nav-button next-button">
+      <a href="{{ next_lesson.url | relative_url }}" class="nav-button next-button">
         <div>
           <div class="label">Next</div>
           <div class="title">{{ next_lesson.title }}</div>

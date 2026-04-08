@@ -12,6 +12,7 @@
       title="{{ site.title | xml_escape }} Feed"
       href="{{ site.rss_url | relative_url }}"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     {% endif %}
   </head>
 
@@ -21,10 +22,10 @@
         <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title }}</a>
         <nav class="site-nav">
           <a href="/">Home</a>
-          <a href="/tracks/">
+          <a href="{{ '/tracks/' | relative_url }}">
             <i class="fa-solid fa-user"></i>
-Tracks</a>
-          <a href="/exercises/">
+            Tracks</a>
+          <a href="{{ '/exercises/' | relative_url }}">
             <i class="fa fa-camera-retro"></i>
             Exercises</a>
         </nav>

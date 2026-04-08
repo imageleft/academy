@@ -1,6 +1,7 @@
 ---
 layout: home
 title: imageleft - Academy
+permalink: /
 ---
 
 <div class="home-hero">
@@ -18,7 +19,8 @@ title: imageleft - Academy
     <div class="cards-grid">
       {% for track in site.tracks %}
         {% assign lesson_count = site.lessons | where: "track", track.slug | size %}
-        <a href="{{ track.url }}" class="card">
+        <a href="{{ track.url | relative_url}}" class="card">
+
           <div class="card-badge">{{ track.level }}</div>
           <h3>{{ track.title }}</h3>
           <p class="card-tagline">{{ track.tagline }}</p>
