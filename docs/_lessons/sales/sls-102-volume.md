@@ -4,6 +4,7 @@ code: "SLS 102"
 track: sales
 week: 2
 type: mindset
+layout: lesson
 ---
 
 Most people think their pipeline is a quality problem.

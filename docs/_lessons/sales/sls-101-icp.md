@@ -5,6 +5,7 @@ track: sales
 week: 2
 type: structured
 layout: lesson
+layout: lesson
 ---
 
 ## What is an ICP?

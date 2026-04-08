@@ -4,6 +4,7 @@ code: "SLS 104"
 track: sales
 week: 4
 type: mindset
+layout: lesson
 ---
 
 Every person you meet in sales can be one of two things.

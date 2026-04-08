@@ -4,6 +4,7 @@ code: "SLS 103"
 track: sales
 week: 3
 type: mindset
+layout: lesson
 ---
 
 You can message anyone.

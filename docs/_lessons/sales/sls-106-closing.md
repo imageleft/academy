@@ -4,6 +4,7 @@ code: "SLS 106"
 track: sales
 week: 6
 type: mindset
+layout: lesson
 ---
 
 Most people think closing is a moment.
